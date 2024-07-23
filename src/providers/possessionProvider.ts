@@ -53,6 +53,20 @@ const PossessionProvider = {
             }
         }
         throw new Error(`Unsupported resource: ${resource}`);
+    },
+    delete: async (resource: string, nomPatrimoine: string, nomPossession: string) => {
+        if (resource === "possessions") {
+            try {
+                possessionApi.deletePatrimoinePossessionByNom(nomPatrimoine, nomPossession)
+
+                return { success: true };
+            } catch (error) {
+                console.log(`delete error: ${error}`);
+                throw error;
+            }
+        } else {
+            throw new Error(`Unsupported resource: ${resource}`);
+        }
     }
 }
 
