@@ -1,5 +1,6 @@
 import { possessionApi } from "./api";
 import addIdField from "./utils";
+import { PossessionAvecType } from "./gen";
 
 const PossessionProvider = {
     getOne: async (resource: string, nomPatrimoine: string, nomPossession: string) => {
@@ -38,6 +39,20 @@ const PossessionProvider = {
         } else {
             throw new Error(`Unsupported resource: ${resource}`);
         }
+    },
+    saveOrUpdate: async (resource: string, nomPatrimoine: string, payload: PossessionAvecType, page: number, pageSize: number) => {
+        if (resource === "possessions") {
+            try {
+                const response = await possessionApi.crupdatePatrimoinePossessions(nomPatrimoine, page, pageSize, { data: [payload] })
+                const data = addIdField(response.data, "nomPossession")
+
+                return { data }
+            } catch (error) {
+                console.error('saveOrUpdate error:', error);
+                throw error;
+            }
+        }
+        throw new Error(`Unsupported resource: ${resource}`);
     }
 }
 
