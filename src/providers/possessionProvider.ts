@@ -7,7 +7,7 @@ const PossessionProvider = {
         if (resource === "possessions") {
             try {
                 const response = await possessionApi.getPatrimoinePossessionByNom(nomPatrimoine, nomPossession);
-                const data = addIdField(response.data, "nomPossession");
+                const data = addIdField(response.data, "nom");
                 return {
                     data
                 };
@@ -24,7 +24,7 @@ const PossessionProvider = {
         if (resource === "possessions") {
             try {
                 const response = await possessionApi.getPatrimoinePossessions(nomPatrimoine, page, pageSize);
-                const data = addIdField(response.data, "nomPossession");
+                const data = addIdField(response.data.data, "nom");
 
                 const total = data.length;
 
@@ -44,7 +44,7 @@ const PossessionProvider = {
         if (resource === "possessions") {
             try {
                 const response = await possessionApi.crupdatePatrimoinePossessions(nomPatrimoine, page, pageSize, { data: [payload] })
-                const data = addIdField(response.data, "nomPossession")
+                const data = addIdField(response.data.data, "nom")
 
                 return { data }
             } catch (error) {
