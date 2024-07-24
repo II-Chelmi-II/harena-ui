@@ -65,7 +65,4 @@ const PossessionProvider = {
     }
 }
 
-
-
-
 export default PossessionProvider;
