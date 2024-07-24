@@ -8,9 +8,7 @@ const PossessionProvider = {
             try {
                 const response = await possessionApi.getPatrimoinePossessionByNom(nomPatrimoine, nomPossession);
                 const data = addIdField(response.data, "nom");
-                return {
-                    data
-                };
+                return { data };
             } catch (error) {
                 console.log(`getOne error: ${error}`);
                 throw error;
@@ -19,15 +17,12 @@ const PossessionProvider = {
             throw new Error(`Unsupported ressource: ${resource}`);
         }
     },
-
     getList: async (resource: string, nomPatrimoine: string, page: number, pageSize: number) => {
         if (resource === "possessions") {
             try {
                 const response = await possessionApi.getPatrimoinePossessions(nomPatrimoine, page, pageSize);
                 const data = addIdField(response.data.data, "nom");
-
                 const total = data.length;
-
                 return {
                     data: data,
                     total
@@ -46,7 +41,7 @@ const PossessionProvider = {
                 const response = await possessionApi.crupdatePatrimoinePossessions(nomPatrimoine, page, pageSize, { data: [payload] })
                 const data = addIdField(response.data.data, "nom")
 
-                return { data }
+                return { data };
             } catch (error) {
                 console.error('saveOrUpdate error:', error);
                 throw error;
