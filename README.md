@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+# Harena.com UI Repository
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Harena.com UI Repository!
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Harena.com is a comprehensive platform designed to manage various aspects of asset and liability management. The platform offers tools to handle not only assets and liabilities but also receivables, payables, cash flows, and ownership.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Asset Management**: Track and manage your assets effectively, ensuring you have a clear view of your resources.
+- **Liability Management**: Keep an organized record of your liabilities and manage your financial obligations efficiently.
+- **Receivables**: Manage outstanding receivables, including tracking invoices and ensuring timely payments.
+- **Payables**: Keep track of your payables to maintain a smooth cash flow and avoid overdue payments.
+- **Cash Flow Management**: Monitor and manage your cash flows to ensure liquidity and financial stability.
+- **Ownership Tracking**: Maintain records of possessions and ownership details for better asset management.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To get started with the Harena.com UI, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/DeraFotsiny/harena-ui.git
+    ```
+
+2. **Navigate to the Project Directory**:
+    ```bash
+    cd harena-ui
+    ```
+
+3. **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+
+4. **Run the Application**:
+    ```bash
+    npm run dev
+    ```
+
+5. **Access the UI**: Open your web browser and go to `http://localhost:5173` to view the application.
+
+## Contributing
+
+We welcome contributions to Harena.com! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feat/feature-branch`).
+3. Commit your changes (`git commit -m 'feat: new feature'`).
+4. Push to the branch (`git push origin feat/feature-branch`).
+5. Create a new Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
