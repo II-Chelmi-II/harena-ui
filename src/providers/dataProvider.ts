@@ -15,28 +15,45 @@ const getProvider = (resource: string) => {
 
 const dataProvider = {
   create: async (resource: string, params: { data: any; }) => {
-    const response = await getProvider(resource).saveOrUpdate(params.data);
-    return { data: response };
+    const provider = getProvider(resource)
+    if ('saveOrUpdate' in provider) {
+      const response = await provider.saveOrUpdate(params.data)
+      return {
+        data: response.data
+      }
+    }
   },
   update: async (resource: string, params: { data: any; }) => {
-    const response = await getProvider(resource).saveOrUpdate(params.data);
-    return { data: response };
+    const provider = getProvider(resource)
+    if ('saveOrUpdate' in provider) {
+      const response = await provider.saveOrUpdate(params.data);
+      return { data: response };
+    }
   },
   getList: async (resource: string, params: { pagination: { page: any; perPage: any; }; }) => {
     const { page, perPage } = params.pagination;
-    const response = await getProvider(resource).getList(resource, page, perPage);
-    return {
-      data: response.data,
-      total: response.total,
-    };
+    const provider = getProvider(resource)
+    if ('getList' in provider) {
+      const response = await provider.getList(resource, page, perPage);
+      return {
+        data: response.data,
+        total: response.total,
+      }
+    }
   },
   getOne: async (resource: string, params: { id: any; }) => {
-    const response = await getProvider(resource).getOne(resource, params.id);
-    return { data: response.data };
+    const provider = getProvider(resource)
+    if ('getOne' in provider) {
+      const response = await provider.getOne(resource, params.id);
+      return { data: response.data };
+    }
   },
-  delete: async (resource, params) => {
-    const response = await getProvider(resource).delete(resource, params.id);
-    return { data: response };
+  delete: async (resource: string, params: { id: any }) => {
+    const provider = getProvider(resource)
+    if ('delete' in provider) {
+      const response = await provider.delete(resource, params.id);
+      return { data: response };
+    }
   },
   deleteMany: () => {
     throw new Error('Not Implemented');

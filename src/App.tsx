@@ -2,6 +2,7 @@ import { Admin, DataProvider, Resource } from "react-admin";
 import dataProvider from "./providers/dataProvider";
 import PatrimoineList from "./operations/PatrimoineList";
 import PossessionList from "./operations/PossessionList";
+import Dashboard from "./operations/Dashboard";
 
 // Logging
 dataProvider
@@ -15,7 +16,7 @@ dataProvider
 
 function App() {
   return (
-    <Admin dataProvider={dataProvider as DataProvider}>
+    <Admin dashboard={Dashboard} dataProvider={dataProvider as DataProvider}>
       <Resource name="patrimoines" list={PatrimoineList} />
       <Resource name="possessions" list={PossessionList} />
     </Admin>
