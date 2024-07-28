@@ -1,7 +1,7 @@
 import { Admin, DataProvider, Resource } from "react-admin";
 import dataProvider from "./providers/dataProvider";
-import PossessionList from "./components/PossessionList";
-import PatrimoineList from "./components/PatrimoineList";
+import PatrimoineList from "./operations/PatrimoineList";
+import PossessionList from "./operations/PossessionList";
 
 // Logging
 dataProvider
