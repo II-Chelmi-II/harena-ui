@@ -108,7 +108,7 @@ const possessionProvider = {
 };
 
 const projectionFutureProvider = {
-  getImpossibleFlux: async (resource: string, ...args: string[]) => {
+  getList: async (resource: string, ...args: any[]) => {
     try {
       if (resource === "projectionFuture") {
         const [nomPatrimoine, debut, fin] = args;
